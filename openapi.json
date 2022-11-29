@@ -1,0 +1,3297 @@
+
+
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "backend-pruebacorta",
+    "version": "0.0.1",
+    "description": "backend-pruebacorta",
+    "contact": {
+      "name": "Spadilla199",
+      "email": "sergioarturopadilla5@gmail.com"
+    }
+  },
+  "paths": {
+    "/aspirantes/count": {
+      "get": {
+        "x-controller-name": "AspiranteController",
+        "x-operation-name": "count",
+        "tags": [
+          "AspiranteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Aspirante model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Aspirante.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Aspirante>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "AspiranteController.count"
+      }
+    },
+    "/aspirantes/{id}/validacion": {
+      "get": {
+        "x-controller-name": "AspiranteValidacionController",
+        "x-operation-name": "getValidacion",
+        "tags": [
+          "AspiranteValidacionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Validacion belonging to Aspirante",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Validacion"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "AspiranteValidacionController.getValidacion"
+      }
+    },
+    "/aspirantes/{id}": {
+      "put": {
+        "x-controller-name": "AspiranteController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "AspiranteController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Aspirante PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Aspirante"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "AspiranteController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "AspiranteController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "AspiranteController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Aspirante PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AspirantePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "AspiranteController.updateById"
+      },
+      "get": {
+        "x-controller-name": "AspiranteController",
+        "x-operation-name": "findById",
+        "tags": [
+          "AspiranteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Aspirante model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AspiranteWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aspirante.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "AspiranteController.findById"
+      },
+      "delete": {
+        "x-controller-name": "AspiranteController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "AspiranteController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Aspirante DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "AspiranteController.deleteById"
+      }
+    },
+    "/aspirantes": {
+      "post": {
+        "x-controller-name": "AspiranteController",
+        "x-operation-name": "create",
+        "tags": [
+          "AspiranteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Aspirante model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aspirante"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewAspirante"
+              }
+            }
+          }
+        },
+        "operationId": "AspiranteController.create"
+      },
+      "patch": {
+        "x-controller-name": "AspiranteController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "AspiranteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Aspirante PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Aspirante.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Aspirante>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AspirantePartial"
+              }
+            }
+          }
+        },
+        "operationId": "AspiranteController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "AspiranteController",
+        "x-operation-name": "find",
+        "tags": [
+          "AspiranteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Aspirante model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/AspiranteWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aspirante.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "AspiranteController.find"
+      }
+    },
+    "/ping": {
+      "get": {
+        "x-controller-name": "PingController",
+        "x-operation-name": "ping",
+        "tags": [
+          "PingController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Ping Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PingResponse"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "PingController.ping"
+      }
+    },
+    "/requisitos/count": {
+      "get": {
+        "x-controller-name": "RequisitosController",
+        "x-operation-name": "count",
+        "tags": [
+          "RequisitosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisitos model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Requisitos.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Requisitos>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "RequisitosController.count"
+      }
+    },
+    "/requisitos/{id}/vacantes": {
+      "post": {
+        "x-controller-name": "RequisitosVacantesController",
+        "x-operation-name": "create",
+        "tags": [
+          "RequisitosVacantesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisitos model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vacantes"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewVacantesInRequisitos"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "RequisitosVacantesController.create"
+      },
+      "patch": {
+        "x-controller-name": "RequisitosVacantesController",
+        "x-operation-name": "patch",
+        "tags": [
+          "RequisitosVacantesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisitos.Vacantes PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Vacantes.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Vacantes>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VacantesPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "RequisitosVacantesController.patch"
+      },
+      "get": {
+        "x-controller-name": "RequisitosVacantesController",
+        "x-operation-name": "find",
+        "tags": [
+          "RequisitosVacantesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Requisitos has many Vacantes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Vacantes"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "RequisitosVacantesController.find"
+      },
+      "delete": {
+        "x-controller-name": "RequisitosVacantesController",
+        "x-operation-name": "delete",
+        "tags": [
+          "RequisitosVacantesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisitos.Vacantes DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Vacantes.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Vacantes>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "RequisitosVacantesController.delete"
+      }
+    },
+    "/requisitos/{id}": {
+      "put": {
+        "x-controller-name": "RequisitosController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "RequisitosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Requisitos PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Requisitos"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "RequisitosController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "RequisitosController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "RequisitosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Requisitos PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequisitosPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "RequisitosController.updateById"
+      },
+      "get": {
+        "x-controller-name": "RequisitosController",
+        "x-operation-name": "findById",
+        "tags": [
+          "RequisitosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisitos model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequisitosWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Requisitos.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "RequisitosController.findById"
+      },
+      "delete": {
+        "x-controller-name": "RequisitosController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "RequisitosController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Requisitos DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "RequisitosController.deleteById"
+      }
+    },
+    "/requisitos": {
+      "post": {
+        "x-controller-name": "RequisitosController",
+        "x-operation-name": "create",
+        "tags": [
+          "RequisitosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisitos model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Requisitos"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewRequisitos"
+              }
+            }
+          }
+        },
+        "operationId": "RequisitosController.create"
+      },
+      "patch": {
+        "x-controller-name": "RequisitosController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "RequisitosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisitos PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Requisitos.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Requisitos>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RequisitosPartial"
+              }
+            }
+          }
+        },
+        "operationId": "RequisitosController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "RequisitosController",
+        "x-operation-name": "find",
+        "tags": [
+          "RequisitosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Requisitos model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RequisitosWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Requisitos.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "RequisitosController.find"
+      }
+    },
+    "/vacantes/count": {
+      "get": {
+        "x-controller-name": "VacantesController",
+        "x-operation-name": "count",
+        "tags": [
+          "VacantesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Vacantes model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Vacantes.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Vacantes>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "VacantesController.count"
+      }
+    },
+    "/vacantes/{id}/requisitos": {
+      "get": {
+        "x-controller-name": "VacantesRequisitosController",
+        "x-operation-name": "getRequisitos",
+        "tags": [
+          "VacantesRequisitosController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Requisitos belonging to Vacantes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Requisitos"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "VacantesRequisitosController.getRequisitos"
+      }
+    },
+    "/vacantes/{id}": {
+      "put": {
+        "x-controller-name": "VacantesController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "VacantesController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Vacantes PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Vacantes"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "VacantesController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "VacantesController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "VacantesController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Vacantes PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VacantesPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "VacantesController.updateById"
+      },
+      "get": {
+        "x-controller-name": "VacantesController",
+        "x-operation-name": "findById",
+        "tags": [
+          "VacantesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Vacantes model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VacantesWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vacantes.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "VacantesController.findById"
+      },
+      "delete": {
+        "x-controller-name": "VacantesController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "VacantesController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Vacantes DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "VacantesController.deleteById"
+      }
+    },
+    "/vacantes": {
+      "post": {
+        "x-controller-name": "VacantesController",
+        "x-operation-name": "create",
+        "tags": [
+          "VacantesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Vacantes model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vacantes"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewVacantes"
+              }
+            }
+          }
+        },
+        "operationId": "VacantesController.create"
+      },
+      "patch": {
+        "x-controller-name": "VacantesController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "VacantesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Vacantes PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Vacantes.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Vacantes>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VacantesPartial"
+              }
+            }
+          }
+        },
+        "operationId": "VacantesController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "VacantesController",
+        "x-operation-name": "find",
+        "tags": [
+          "VacantesController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Vacantes model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VacantesWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Vacantes.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "VacantesController.find"
+      }
+    },
+    "/validacions/count": {
+      "get": {
+        "x-controller-name": "ValidacionController",
+        "x-operation-name": "count",
+        "tags": [
+          "ValidacionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Validacion model count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Validacion.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Validacion>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ValidacionController.count"
+      }
+    },
+    "/validacions/{id}/aspirantes": {
+      "post": {
+        "x-controller-name": "ValidacionAspiranteController",
+        "x-operation-name": "create",
+        "tags": [
+          "ValidacionAspiranteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Validacion model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Aspirante"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewAspiranteInValidacion"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ValidacionAspiranteController.create"
+      },
+      "patch": {
+        "x-controller-name": "ValidacionAspiranteController",
+        "x-operation-name": "patch",
+        "tags": [
+          "ValidacionAspiranteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Validacion.Aspirante PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Aspirante.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Aspirante>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AspirantePartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ValidacionAspiranteController.patch"
+      },
+      "get": {
+        "x-controller-name": "ValidacionAspiranteController",
+        "x-operation-name": "find",
+        "tags": [
+          "ValidacionAspiranteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Validacion has many Aspirante",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Aspirante"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ValidacionAspiranteController.find"
+      },
+      "delete": {
+        "x-controller-name": "ValidacionAspiranteController",
+        "x-operation-name": "delete",
+        "tags": [
+          "ValidacionAspiranteController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Validacion.Aspirante DELETE success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Aspirante.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Aspirante>"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ValidacionAspiranteController.delete"
+      }
+    },
+    "/validacions/{id}": {
+      "put": {
+        "x-controller-name": "ValidacionController",
+        "x-operation-name": "replaceById",
+        "tags": [
+          "ValidacionController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Validacion PUT success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Validacion"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ValidacionController.replaceById"
+      },
+      "patch": {
+        "x-controller-name": "ValidacionController",
+        "x-operation-name": "updateById",
+        "tags": [
+          "ValidacionController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Validacion PATCH success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidacionPartial"
+              }
+            }
+          },
+          "x-parameter-index": 1
+        },
+        "operationId": "ValidacionController.updateById"
+      },
+      "get": {
+        "x-controller-name": "ValidacionController",
+        "x-operation-name": "findById",
+        "tags": [
+          "ValidacionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Validacion model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidacionWithRelations"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Validacion.Filter"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ValidacionController.findById"
+      },
+      "delete": {
+        "x-controller-name": "ValidacionController",
+        "x-operation-name": "deleteById",
+        "tags": [
+          "ValidacionController"
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "Validacion DELETE success"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "operationId": "ValidacionController.deleteById"
+      }
+    },
+    "/validacions": {
+      "post": {
+        "x-controller-name": "ValidacionController",
+        "x-operation-name": "create",
+        "tags": [
+          "ValidacionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Validacion model instance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Validacion"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewValidacion"
+              }
+            }
+          }
+        },
+        "operationId": "ValidacionController.create"
+      },
+      "patch": {
+        "x-controller-name": "ValidacionController",
+        "x-operation-name": "updateAll",
+        "tags": [
+          "ValidacionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Validacion PATCH success count",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/loopback.Count"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "where",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "title": "Validacion.WhereFilter",
+                  "additionalProperties": true,
+                  "x-typescript-type": "@loopback/repository#Where<Validacion>"
+                }
+              }
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ValidacionPartial"
+              }
+            }
+          }
+        },
+        "operationId": "ValidacionController.updateAll"
+      },
+      "get": {
+        "x-controller-name": "ValidacionController",
+        "x-operation-name": "find",
+        "tags": [
+          "ValidacionController"
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Validacion model instances",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValidacionWithRelations"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "filter",
+            "in": "query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Validacion.Filter1"
+                }
+              }
+            }
+          }
+        ],
+        "operationId": "ValidacionController.find"
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "components": {
+    "schemas": {
+      "Validacion": {
+        "title": "Validacion",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "requisitos": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "requisitosaprobados": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "requisitos",
+          "nombre",
+          "requisitosaprobados"
+        ],
+        "additionalProperties": false
+      },
+      "Aspirante": {
+        "title": "Aspirante",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "y": {
+            "type": "string"
+          },
+          "edad": {
+            "type": "number"
+          },
+          "estadocivil": {
+            "type": "string"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "educacion": {
+            "type": "string"
+          },
+          "ID": {
+            "type": "string"
+          },
+          "validacionId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "y",
+          "edad",
+          "estadocivil",
+          "direccion",
+          "educacion",
+          "ID"
+        ],
+        "additionalProperties": true
+      },
+      "NewAspirante": {
+        "title": "NewAspirante",
+        "type": "object",
+        "description": "(tsType: Omit<Aspirante, 'id'>, schemaOptions: { title: 'NewAspirante', exclude: [ 'id' ] })",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "y": {
+            "type": "string"
+          },
+          "edad": {
+            "type": "number"
+          },
+          "estadocivil": {
+            "type": "string"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "educacion": {
+            "type": "string"
+          },
+          "ID": {
+            "type": "string"
+          },
+          "validacionId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "y",
+          "edad",
+          "estadocivil",
+          "direccion",
+          "educacion",
+          "ID"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "Omit<Aspirante, 'id'>"
+      },
+      "ValidacionWithRelations": {
+        "title": "ValidacionWithRelations",
+        "type": "object",
+        "description": "(tsType: ValidacionWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "requisitos": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "requisitosaprobados": {
+            "type": "string"
+          },
+          "aspirantes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AspiranteWithRelations"
+            }
+          }
+        },
+        "required": [
+          "requisitos",
+          "nombre",
+          "requisitosaprobados"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "ValidacionWithRelations"
+      },
+      "AspiranteWithRelations": {
+        "title": "AspiranteWithRelations",
+        "type": "object",
+        "description": "(tsType: AspiranteWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "y": {
+            "type": "string"
+          },
+          "edad": {
+            "type": "number"
+          },
+          "estadocivil": {
+            "type": "string"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "educacion": {
+            "type": "string"
+          },
+          "ID": {
+            "type": "string"
+          },
+          "validacionId": {
+            "type": "string"
+          },
+          "validacion": {
+            "$ref": "#/components/schemas/ValidacionWithRelations"
+          }
+        },
+        "required": [
+          "nombre",
+          "y",
+          "edad",
+          "estadocivil",
+          "direccion",
+          "educacion",
+          "ID"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "AspiranteWithRelations"
+      },
+      "AspirantePartial": {
+        "title": "AspirantePartial",
+        "type": "object",
+        "description": "(tsType: Partial<Aspirante>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "y": {
+            "type": "string"
+          },
+          "edad": {
+            "type": "number"
+          },
+          "estadocivil": {
+            "type": "string"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "educacion": {
+            "type": "string"
+          },
+          "ID": {
+            "type": "string"
+          },
+          "validacionId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true,
+        "x-typescript-type": "Partial<Aspirante>"
+      },
+      "Vacantes": {
+        "title": "Vacantes",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "cargalaboral": {
+            "type": "string"
+          },
+          "salario": {
+            "type": "string"
+          },
+          "requisitosId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "cargalaboral",
+          "salario"
+        ],
+        "additionalProperties": false
+      },
+      "NewVacantesInRequisitos": {
+        "title": "NewVacantesInRequisitos",
+        "type": "object",
+        "description": "(tsType: @loopback/repository-json-schema#Optional<Omit<Vacantes, 'id'>, 'requisitosId'>, schemaOptions: { title: 'NewVacantesInRequisitos', exclude: [ 'id' ], optional: [ 'requisitosId' ] })",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "cargalaboral": {
+            "type": "string"
+          },
+          "salario": {
+            "type": "string"
+          },
+          "requisitosId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "cargalaboral",
+          "salario"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository-json-schema#Optional<Omit<Vacantes, 'id'>, 'requisitosId'>"
+      },
+      "VacantesPartial": {
+        "title": "VacantesPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Vacantes>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "cargalaboral": {
+            "type": "string"
+          },
+          "salario": {
+            "type": "string"
+          },
+          "requisitosId": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Vacantes>"
+      },
+      "Requisitos": {
+        "title": "Requisitos",
+        "type": "object",
+        "properties": {
+          "edad": {
+            "type": "number"
+          },
+          "experiencia": {
+            "type": "string"
+          },
+          "estudios": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "edad",
+          "experiencia",
+          "estudios"
+        ],
+        "additionalProperties": false
+      },
+      "NewRequisitos": {
+        "title": "NewRequisitos",
+        "type": "object",
+        "description": "(tsType: Omit<Requisitos, 'id'>, schemaOptions: { title: 'NewRequisitos', exclude: [ 'id' ] })",
+        "properties": {
+          "edad": {
+            "type": "number"
+          },
+          "experiencia": {
+            "type": "string"
+          },
+          "estudios": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "edad",
+          "experiencia",
+          "estudios"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Requisitos, 'id'>"
+      },
+      "VacantesWithRelations": {
+        "title": "VacantesWithRelations",
+        "type": "object",
+        "description": "(tsType: VacantesWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "cargalaboral": {
+            "type": "string"
+          },
+          "salario": {
+            "type": "string"
+          },
+          "requisitosId": {
+            "type": "string"
+          },
+          "requisitos": {
+            "$ref": "#/components/schemas/RequisitosWithRelations"
+          }
+        },
+        "required": [
+          "nombre",
+          "cargalaboral",
+          "salario"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "VacantesWithRelations"
+      },
+      "RequisitosWithRelations": {
+        "title": "RequisitosWithRelations",
+        "type": "object",
+        "description": "(tsType: RequisitosWithRelations, schemaOptions: { includeRelations: true })",
+        "properties": {
+          "edad": {
+            "type": "number"
+          },
+          "experiencia": {
+            "type": "string"
+          },
+          "estudios": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          },
+          "vacantes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VacantesWithRelations"
+            }
+          }
+        },
+        "required": [
+          "edad",
+          "experiencia",
+          "estudios"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "RequisitosWithRelations"
+      },
+      "RequisitosPartial": {
+        "title": "RequisitosPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Requisitos>, schemaOptions: { partial: true })",
+        "properties": {
+          "edad": {
+            "type": "number"
+          },
+          "experiencia": {
+            "type": "string"
+          },
+          "estudios": {
+            "type": "string"
+          },
+          "id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Requisitos>"
+      },
+      "NewVacantes": {
+        "title": "NewVacantes",
+        "type": "object",
+        "description": "(tsType: Omit<Vacantes, 'id'>, schemaOptions: { title: 'NewVacantes', exclude: [ 'id' ] })",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "cargalaboral": {
+            "type": "string"
+          },
+          "salario": {
+            "type": "string"
+          },
+          "requisitosId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "cargalaboral",
+          "salario"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Vacantes, 'id'>"
+      },
+      "NewAspiranteInValidacion": {
+        "title": "NewAspiranteInValidacion",
+        "type": "object",
+        "description": "(tsType: @loopback/repository-json-schema#Optional<Omit<Aspirante, 'id'>, 'validacionId'>, schemaOptions: { title: 'NewAspiranteInValidacion', exclude: [ 'id' ], optional: [ 'validacionId' ] })",
+        "properties": {
+          "nombre": {
+            "type": "string"
+          },
+          "y": {
+            "type": "string"
+          },
+          "edad": {
+            "type": "number"
+          },
+          "estadocivil": {
+            "type": "string"
+          },
+          "direccion": {
+            "type": "string"
+          },
+          "educacion": {
+            "type": "string"
+          },
+          "ID": {
+            "type": "string"
+          },
+          "validacionId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "nombre",
+          "y",
+          "edad",
+          "estadocivil",
+          "direccion",
+          "educacion",
+          "ID"
+        ],
+        "additionalProperties": true,
+        "x-typescript-type": "@loopback/repository-json-schema#Optional<Omit<Aspirante, 'id'>, 'validacionId'>"
+      },
+      "NewValidacion": {
+        "title": "NewValidacion",
+        "type": "object",
+        "description": "(tsType: Omit<Validacion, 'id'>, schemaOptions: { title: 'NewValidacion', exclude: [ 'id' ] })",
+        "properties": {
+          "requisitos": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "requisitosaprobados": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "requisitos",
+          "nombre",
+          "requisitosaprobados"
+        ],
+        "additionalProperties": false,
+        "x-typescript-type": "Omit<Validacion, 'id'>"
+      },
+      "ValidacionPartial": {
+        "title": "ValidacionPartial",
+        "type": "object",
+        "description": "(tsType: Partial<Validacion>, schemaOptions: { partial: true })",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "requisitos": {
+            "type": "string"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "requisitosaprobados": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "Partial<Validacion>"
+      },
+      "loopback.Count": {
+        "type": "object",
+        "title": "loopback.Count",
+        "x-typescript-type": "@loopback/repository#Count",
+        "properties": {
+          "count": {
+            "type": "number"
+          }
+        }
+      },
+      "Aspirante.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Aspirante.ScopeFilter"
+      },
+      "Aspirante.IncludeFilter.Items": {
+        "title": "Aspirante.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Aspirante.ScopeFilter"
+          }
+        }
+      },
+      "Aspirante.Filter": {
+        "type": "object",
+        "title": "Aspirante.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "y": {
+                    "type": "boolean"
+                  },
+                  "edad": {
+                    "type": "boolean"
+                  },
+                  "estadocivil": {
+                    "type": "boolean"
+                  },
+                  "direccion": {
+                    "type": "boolean"
+                  },
+                  "educacion": {
+                    "type": "boolean"
+                  },
+                  "ID": {
+                    "type": "boolean"
+                  },
+                  "validacionId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Aspirante.Fields"
+          },
+          "include": {
+            "title": "Aspirante.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Aspirante.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Aspirante>"
+      },
+      "Aspirante.Filter1": {
+        "type": "object",
+        "title": "Aspirante.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Aspirante.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "y": {
+                    "type": "boolean"
+                  },
+                  "edad": {
+                    "type": "boolean"
+                  },
+                  "estadocivil": {
+                    "type": "boolean"
+                  },
+                  "direccion": {
+                    "type": "boolean"
+                  },
+                  "educacion": {
+                    "type": "boolean"
+                  },
+                  "ID": {
+                    "type": "boolean"
+                  },
+                  "validacionId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Aspirante.Fields"
+          },
+          "include": {
+            "title": "Aspirante.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Aspirante.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Aspirante>"
+      },
+      "PingResponse": {
+        "type": "object",
+        "title": "PingResponse",
+        "properties": {
+          "greeting": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "headers": {
+            "type": "object",
+            "properties": {
+              "Content-Type": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": true
+          }
+        }
+      },
+      "Requisitos.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Requisitos.ScopeFilter"
+      },
+      "Requisitos.IncludeFilter.Items": {
+        "title": "Requisitos.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Requisitos.ScopeFilter"
+          }
+        }
+      },
+      "Requisitos.Filter": {
+        "type": "object",
+        "title": "Requisitos.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "edad": {
+                    "type": "boolean"
+                  },
+                  "experiencia": {
+                    "type": "boolean"
+                  },
+                  "estudios": {
+                    "type": "boolean"
+                  },
+                  "id": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "edad",
+                    "experiencia",
+                    "estudios",
+                    "id"
+                  ],
+                  "example": "edad"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Requisitos.Fields"
+          },
+          "include": {
+            "title": "Requisitos.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Requisitos.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Requisitos>"
+      },
+      "Requisitos.Filter1": {
+        "type": "object",
+        "title": "Requisitos.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Requisitos.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "edad": {
+                    "type": "boolean"
+                  },
+                  "experiencia": {
+                    "type": "boolean"
+                  },
+                  "estudios": {
+                    "type": "boolean"
+                  },
+                  "id": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "edad",
+                    "experiencia",
+                    "estudios",
+                    "id"
+                  ],
+                  "example": "edad"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Requisitos.Fields"
+          },
+          "include": {
+            "title": "Requisitos.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Requisitos.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Requisitos>"
+      },
+      "Vacantes.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Vacantes.ScopeFilter"
+      },
+      "Vacantes.IncludeFilter.Items": {
+        "title": "Vacantes.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Vacantes.ScopeFilter"
+          }
+        }
+      },
+      "Vacantes.Filter": {
+        "type": "object",
+        "title": "Vacantes.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "cargalaboral": {
+                    "type": "boolean"
+                  },
+                  "salario": {
+                    "type": "boolean"
+                  },
+                  "requisitosId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "nombre",
+                    "cargalaboral",
+                    "salario",
+                    "requisitosId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Vacantes.Fields"
+          },
+          "include": {
+            "title": "Vacantes.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Vacantes.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Vacantes>"
+      },
+      "Vacantes.Filter1": {
+        "type": "object",
+        "title": "Vacantes.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Vacantes.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "cargalaboral": {
+                    "type": "boolean"
+                  },
+                  "salario": {
+                    "type": "boolean"
+                  },
+                  "requisitosId": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "nombre",
+                    "cargalaboral",
+                    "salario",
+                    "requisitosId"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Vacantes.Fields"
+          },
+          "include": {
+            "title": "Vacantes.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Vacantes.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Vacantes>"
+      },
+      "Validacion.ScopeFilter": {
+        "type": "object",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            ]
+          },
+          "include": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {},
+              "additionalProperties": true
+            }
+          }
+        },
+        "additionalProperties": false,
+        "title": "Validacion.ScopeFilter"
+      },
+      "Validacion.IncludeFilter.Items": {
+        "title": "Validacion.IncludeFilter.Items",
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "scope": {
+            "$ref": "#/components/schemas/Validacion.ScopeFilter"
+          }
+        }
+      },
+      "Validacion.Filter": {
+        "type": "object",
+        "title": "Validacion.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "requisitos": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "requisitosaprobados": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "requisitos",
+                    "nombre",
+                    "requisitosaprobados"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Validacion.Fields"
+          },
+          "include": {
+            "title": "Validacion.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Validacion.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Validacion>"
+      },
+      "Validacion.Filter1": {
+        "type": "object",
+        "title": "Validacion.Filter",
+        "properties": {
+          "offset": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "example": 100
+          },
+          "skip": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "order": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "where": {
+            "title": "Validacion.WhereFilter",
+            "type": "object",
+            "additionalProperties": true
+          },
+          "fields": {
+            "oneOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "boolean"
+                  },
+                  "requisitos": {
+                    "type": "boolean"
+                  },
+                  "nombre": {
+                    "type": "boolean"
+                  },
+                  "requisitosaprobados": {
+                    "type": "boolean"
+                  }
+                },
+                "additionalProperties": false
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "id",
+                    "requisitos",
+                    "nombre",
+                    "requisitosaprobados"
+                  ],
+                  "example": "id"
+                },
+                "uniqueItems": true
+              }
+            ],
+            "title": "Validacion.Fields"
+          },
+          "include": {
+            "title": "Validacion.IncludeFilter",
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/Validacion.IncludeFilter.Items"
+                },
+                {
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        },
+        "additionalProperties": false,
+        "x-typescript-type": "@loopback/repository#Filter<Validacion>"
+      }
+    }
+  }
+}

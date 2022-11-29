@@ -3,3 +3,7 @@ export * from './aspirante.controller';
 export * from './vacantes.controller';
 export * from './requisitos.controller';
 export * from './validacion.controller';
+export * from './validacion-aspirante.controller';
+export * from './aspirante-validacion.controller';
+export * from './requisitos-vacantes.controller';
+export * from './vacantes-requisitos.controller';
