@@ -1,7 +1,10 @@
 # backend-pruebacorta
+Este es el repositorio publico [Heroku](https://prueba-progra4.herokuapp.com/).
 
-This application is generated using [LoopBack 4 CLI](https://loopback.io/doc/en/lb4/Command-line-interface.html) with the
-[initial project layout](https://loopback.io/doc/en/lb4/Loopback-application-layout.html).
+
+## Diagrama de clases.
+![Diagrama_de clases](https://app.genmymodel.com/api/projects/_NNJR4G98Ee2ck8ytUMEi6A/diagrams/_NNJR4298Ee2ck8ytUMEi6A/svg)
+
 
 ## Install dependencies
 
